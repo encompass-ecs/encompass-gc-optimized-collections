@@ -1,0 +1,24 @@
+{
+  "name": "tstl-gc-optimized-collections",
+  "version": "1.0.0",
+  "description": "Provides GC Optimized Collections for use when transpiling TS code to Lua",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ehemsley/tstl-gc-optimized-collections.git"
+  },
+  "keywords": [
+    "TSTL",
+    "typescript",
+    "lua"
+  ],
+  "author": "Evan Hemsley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/ehemsley/tstl-gc-optimized-collections/issues"
+  },
+  "homepage": "https://gitlab.com/ehemsley/tstl-gc-optimized-collections#readme"
+}
