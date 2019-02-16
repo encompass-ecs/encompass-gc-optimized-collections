@@ -1,9 +1,11 @@
 export class GCOptimizedMap<TKey, TValue> {
     public size: number;
 
+    private keys: { [key: string]: TKey };
     private items: { [key: string]: TValue };
 
     constructor(other?: Iterable<[TKey, TValue]> | Array<[TKey, TValue]>) {
+        this.keys = {};
         this.items = {};
         this.size = 0;
 
@@ -26,6 +28,7 @@ export class GCOptimizedMap<TKey, TValue> {
     public clear(): void {
         for (const k in this.items) {
             this.items[k] = undefined;
+            this.keys[k] = undefined;
         }
         this.size = 0;
         return;
@@ -37,12 +40,13 @@ export class GCOptimizedMap<TKey, TValue> {
             this.size--;
         }
         this.items[key as any] = undefined;
+        this.keys[key as any] = undefined;
         return contains;
     }
 
     public forEach(callback: (value: TValue, key: TKey, map: GCOptimizedMap<TKey, TValue>) => any): void {
         for (const k in this.items) {
-            callback(this.items[k], k as any, this);
+            callback(this.items[k], this.keys[k], this);
         }
         return;
     }
@@ -60,6 +64,7 @@ export class GCOptimizedMap<TKey, TValue> {
             this.size++;
         }
         this.items[key as any] = value;
+        this.keys[key as any] = key;
         return this;
     }
 }

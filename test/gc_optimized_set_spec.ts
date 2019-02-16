@@ -18,15 +18,6 @@ describe("GCOptimizedSet", () => {
                 expect(mySet.has("b")).toBeTruthy();
             });
         });
-
-        describe("constructed with GCOptimizedSet", () => {
-            const mySet = new GCOptimizedSet(new GCOptimizedSet(["a", "b"]));
-
-            it("should have all given elements", () => {
-                expect(mySet.has("a")).toBeTruthy();
-                expect(mySet.has("b")).toBeTruthy();
-            });
-        });
     });
 
     describe("add", () => {
@@ -62,18 +53,6 @@ describe("GCOptimizedSet", () => {
 
         it("should not have deleted element", () => {
             expect(mySet.has("a")).toBeFalsy();
-        });
-    });
-
-    describe("entries", () => {
-        const mySet = new GCOptimizedSet([5, 6, 7]);
-        let count = 0;
-        for (const [key, value] of mySet.entries()) {
-            count += key + value;
-        }
-
-        it("should iterate all keys and values", () => {
-            expect(count).toBe(36);
         });
     });
 
@@ -118,30 +97,6 @@ describe("GCOptimizedSet", () => {
             it("returns false", () => {
                 expect(mySet.has(null)).toBeFalsy();
             });
-        });
-    });
-
-    describe("keys", () => {
-        const mySet = new GCOptimizedSet([5, 6, 7]);
-        let count = 0;
-        for (const key of mySet.keys()) {
-            count += key;
-        }
-
-        it("iterates over keys", () => {
-            expect(count).toBe(18);
-        });
-    });
-
-    describe("values", () => {
-        const mySet = new GCOptimizedSet([5, 6, 7]);
-        let count = 0;
-        for (const value of mySet.values()) {
-            count += value;
-        }
-
-        it("iterates over values", () => {
-            expect(count).toBe(18);
         });
     });
 
