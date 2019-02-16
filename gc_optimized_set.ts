@@ -1,66 +1,37 @@
 export class GCOptimizedSet<TValue> {
-    public size: number;
+    get size(): number {
+        return this.items.size;
+    }
 
-    private items: {[key: string]: TValue}; // Key type is actually TValue
+    private items: Set<TValue>; // Key type is actually TValue
 
     constructor(other?: Iterable<TValue> | TValue[]) {
-        this.items = {};
-        this.size = 0;
-
-        if (other) {
-            const iterable = other as Iterable<TValue>;
-            if (iterable[Symbol.iterator]) {
-                // Iterate manually because Set is compiled with ES5 which doesn't support Iterables in for...of
-                const iterator = iterable[Symbol.iterator]();
-                while (true) {
-                    const result = iterator.next();
-                    if (result.done) {
-                        break;
-                    }
-                    this.add(result.value);
-                }
-            } else {
-                const arr = other as TValue[];
-                this.size = arr.length;
-                for (const value of arr) {
-                    this.items[value as any] = value;
-                }
-            }
-        }
+        this.items = new Set<TValue>(other);
     }
 
     public add(value: TValue): GCOptimizedSet<TValue> {
-        if (!this.has(value)) {
-            this.size++;
-        }
-        this.items[value as any] = value;
+        this.items.add(value);
         return this;
     }
 
     public clear(): void {
-        for (const k in this.items) {
-            delete this.items[k];
+        for (const k of this.items) {
+            this.delete(k);
         }
-        this.size = 0;
     }
 
     public delete(value: TValue): boolean {
-        const contains = this.has(value);
-        if (contains) {
-            this.size--;
-        }
-        delete this.items[value as any];
-        return contains;
+        return this.items.delete(value);
     }
 
     public forEach(callback: (value: TValue, key: TValue, set: GCOptimizedSet<TValue>) => any): void {
-        for (const key in this.items) {
-            callback(this.items[key], this.items[key], this);
+        for (const value of this.items) {
+            callback(value, value, this);
         }
         return;
     }
 
     public has(value: TValue): boolean {
-        return this.items[value as any] !== undefined;
+        return this.items.has(value);
     }
 }
