@@ -1,4 +1,4 @@
-import { GCOptimizedMap } from "../src/gc_optimized_map";
+import { GCOptimizedMap } from "..";
 
 describe("GCOptimizedMap", () => {
     describe("clear", () => {

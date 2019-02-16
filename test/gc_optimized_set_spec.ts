@@ -1,6 +1,8 @@
+import { GCOptimizedSet } from "..";
+
 describe("GCOptimizedSet", () => {
     describe("clear", () => {
-        const mySet = new Set<number>([0, 1]);
+        const mySet = new GCOptimizedSet<number>([0, 1]);
 
         mySet.clear();
 
