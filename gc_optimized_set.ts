@@ -39,7 +39,7 @@ export class GCOptimizedSet<TValue> {
 
     public clear(): void {
         for (const k in this.items) {
-            this.items[k] = undefined;
+            delete this.items[k];
         }
         this.size = 0;
     }
@@ -49,7 +49,7 @@ export class GCOptimizedSet<TValue> {
         if (contains) {
             this.size--;
         }
-        this.items[value as any] = undefined;
+        delete this.items[value as any];
         return contains;
     }
 

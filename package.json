@@ -1,6 +1,6 @@
 {
   "name": "tstl-gc-optimized-collections",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Provides GC Optimized Collections for use when transpiling TS code to Lua",
   "scripts": {
     "test": "jest",

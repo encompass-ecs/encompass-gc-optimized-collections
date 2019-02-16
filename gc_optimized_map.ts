@@ -27,8 +27,8 @@ export class GCOptimizedMap<TKey, TValue> {
 
     public clear(): void {
         for (const k in this.items) {
-            this.items[k] = undefined;
-            this.keys[k] = undefined;
+            delete this.items[k];
+            delete this.keys[k];
         }
         this.size = 0;
         return;
@@ -39,8 +39,8 @@ export class GCOptimizedMap<TKey, TValue> {
         if (contains) {
             this.size--;
         }
-        this.items[key as any] = undefined;
-        this.keys[key as any] = undefined;
+        delete this.items[key as any];
+        delete this.keys[key as any];
         return contains;
     }
 
