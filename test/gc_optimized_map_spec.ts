@@ -25,22 +25,6 @@ describe("GCOptimizedMap", () => {
                 expect(myMap.has("b")).toBeTruthy();
             });
         });
-
-        describe("GCOptimizedMap argument", () => {
-            const myMap = new GCOptimizedMap(new GCOptimizedMap([["a", "c"],["b", "d"]]));
-
-            it("should have size 2", () => {
-                expect(myMap.size).toBe(2);
-            });
-
-            it("should have element a", () => {
-                expect(myMap.has("a")).toBeTruthy();
-            });
-
-            it("should have element b", () => {
-                expect(myMap.has("b")).toBeTruthy();
-            });
-        });
     });
 
     describe("clear", () => {
@@ -72,18 +56,6 @@ describe("GCOptimizedMap", () => {
 
         it("should have element b", () => {
             expect(myMap.has("b")).toBeTruthy();
-        });
-    });
-
-    describe("entries", () => {
-        const myMap = new GCOptimizedMap([[5, 2], [6, 3], [7, 4]]);
-        let count = 0;
-        for (const [key, value] of myMap.entries()) {
-            count += key + value;
-        }
-
-        it("should iterate all keys and values", () => {
-            expect(count).toBe(27);
         });
     });
 
@@ -135,18 +107,6 @@ describe("GCOptimizedMap", () => {
         });
     });
 
-    describe("keys", () => {
-        const myMap = new GCOptimizedMap([[5, 2], [6, 3], [7, 4]]);
-        let count = 0;
-        for (const key of myMap.keys()) {
-            count += key;
-        }
-
-        it("iterates over keys", () => {
-            expect(count).toBe(18);
-        });
-    });
-
     describe("set", () => {
         const myMap = new GCOptimizedMap();
 
@@ -158,18 +118,6 @@ describe("GCOptimizedMap", () => {
 
         it("should have value", () => {
             expect(myMap.get("a")).toBe(5);
-        });
-    });
-
-    describe("values", () => {
-        const myMap = new GCOptimizedMap([[5, 2], [6, 3], [7, 4]]);
-        let count = 0;
-        for (const value of myMap.values()) {
-            count += value;
-        }
-
-        it("iterates over all values", () => {
-            expect(count).toBe(9);
         });
     });
 

@@ -2,12 +2,15 @@
     "compilerOptions": {
         "noImplicitThis" : true,
         "alwaysStrict" : true,
-        "outDir": "./dist/",
-        "rootDir": "./src/",
+        "outDir": "./build",
+        "rootDir": "./",
         "declaration": true,
         "sourceMap": true,
         "experimentalDecorators": true,
         "target": "es6",
         "module": "commonjs"
-    }
+    },
+    "exclude": [
+        "./test"
+    ],
 }

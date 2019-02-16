@@ -1,58 +1,65 @@
 export class GCOptimizedMap<TKey, TValue> {
-    get size(): number {
-        return this.internalMap.size;
-    }
+    public size: number;
 
-    private internalMap: Map<TKey, TValue>;
+    private items: { [key: string]: TValue };
 
     constructor(other?: Iterable<[TKey, TValue]> | Array<[TKey, TValue]>) {
-        this.internalMap = new Map(other);
+        this.items = {};
+        this.size = 0;
+
+        if (other) {
+            const iterable = other as Iterable<[TKey, TValue]>;
+            if (iterable[Symbol.iterator]) {
+                for (const [k, v] of iterable) {
+                    this.set(k, v);
+                }
+            } else {
+                const arr = other as Array<[TKey, TValue]>;
+                for (const [k, v] of arr) {
+                    this.set(k, v);
+                }
+                this.size = arr.length;
+            }
+        }
     }
 
     public clear(): void {
-        for (const [k, v] of this.internalMap) {
-            this.delete(k);
+        for (const k in this.items) {
+            this.items[k] = undefined;
         }
+        this.size = 0;
         return;
     }
 
     public delete(key: TKey): boolean {
-        return this.internalMap.delete(key);
-    }
-
-    public [Symbol.iterator](): IterableIterator<[TKey, TValue]> {
-        return this.entries();
-    }
-
-    public entries(): IterableIterator<[TKey, TValue]> {
-        return this.internalMap.entries();
+        const contains = this.has(key);
+        if (contains) {
+            this.size--;
+        }
+        this.items[key as any] = undefined;
+        return contains;
     }
 
     public forEach(callback: (value: TValue, key: TKey, map: GCOptimizedMap<TKey, TValue>) => any): void {
-        for (const [k, v] of this.internalMap) {
-            callback(v, k, this);
+        for (const k in this.items) {
+            callback(this.items[k], k as any, this);
         }
         return;
     }
 
     public get(key: TKey): TValue {
-        return this.internalMap.get(key);
+        return this.items[key as any];
     }
 
     public has(key: TKey): boolean {
-        return this.internalMap.has(key);
-    }
-
-    public keys(): IterableIterator<TKey> {
-        return this.internalMap.keys();
+        return this.items[key as any] !== undefined;
     }
 
     public set(key: TKey, value: TValue): GCOptimizedMap<TKey, TValue> {
-        this.internalMap.set(key, value);
+        if (!this.has(key)) {
+            this.size++;
+        }
+        this.items[key as any] = value;
         return this;
-    }
-
-    public values(): IterableIterator<TValue> {
-        return this.internalMap.values();
     }
 }

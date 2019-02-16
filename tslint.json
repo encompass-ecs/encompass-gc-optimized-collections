@@ -23,7 +23,6 @@
         "interface-name": [true, "never-prefix"],
         "jsdoc-format": true,
         "label-position": true,
-        "max-classes-per-file": [true, 1],
         "max-line-length": [true, 120],
         "member-access": true,
         "new-parens": true,
