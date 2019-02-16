@@ -1,4 +1,4 @@
-import { GCOptimizedSet } from "..";
+import { GCOptimizedSet } from "../gc_optimized_set";
 
 describe("GCOptimizedSet", () => {
     describe("clear", () => {
