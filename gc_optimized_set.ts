@@ -5,7 +5,7 @@ export class GCOptimizedSet<TValue> {
 
     private items: Set<TValue>; // Key type is actually TValue
 
-    constructor(other?: Iterable<TValue> | TValue[]) {
+    constructor(other?: ReadonlyArray<TValue>) {
         this.items = new Set<TValue>(other);
     }
 

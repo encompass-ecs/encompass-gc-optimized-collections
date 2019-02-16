@@ -5,7 +5,7 @@ export class GCOptimizedMap<TKey, TValue> {
 
     private items: Map<TKey, TValue>;
 
-    constructor(other?: Iterable<[TKey, TValue]> | Array<[TKey, TValue]>) {
+    constructor(other?: ReadonlyArray<[TKey, TValue]>) {
         this.items = new Map<TKey, TValue>(other);
     }
 
@@ -27,7 +27,7 @@ export class GCOptimizedMap<TKey, TValue> {
         return;
     }
 
-    public get(key: TKey): TValue {
+    public get(key: TKey): TValue | undefined {
         return this.items.get(key);
     }
 
