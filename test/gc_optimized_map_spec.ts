@@ -216,6 +216,6 @@ describe("GCOptimizedMap", () => {
             it("returns 1", () => {
                 expect(m.size).toBe(1);
             });
-        })
+        });
     });
 });
