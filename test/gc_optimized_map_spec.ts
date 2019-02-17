@@ -11,7 +11,7 @@ describe("GCOptimizedMap", () => {
         });
 
         describe("iterable argument", () => {
-            const myMap = new GCOptimizedMap(new Map([["a", "c"],["b", "d"]]));
+            const myMap = new GCOptimizedMap([["a", "c"],["b", "d"]]);
 
             it("should have size 2", () => {
                 expect(myMap.size).toBe(2);
@@ -46,7 +46,7 @@ describe("GCOptimizedMap", () => {
     });
 
     describe("delete", () => {
-        const myMap = new GCOptimizedMap(new Map([["a", "c"],["b", "d"]]));
+        const myMap = new GCOptimizedMap([["a", "c"],["b", "d"]]);
 
         myMap.delete("a");
 

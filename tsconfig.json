@@ -4,6 +4,8 @@
         "alwaysStrict" : true,
         "outDir": "./build",
         "rootDir": "./",
+        "baseUrl": ".",
+        "paths": {},
         "declaration": true,
         "sourceMap": true,
         "experimentalDecorators": true,
