@@ -3,7 +3,7 @@
         "noImplicitThis" : true,
         "alwaysStrict" : true,
         "outDir": "./build",
-        "rootDir": "./",
+        "rootDir": ".",
         "baseUrl": ".",
         "paths": {},
         "declaration": true,
