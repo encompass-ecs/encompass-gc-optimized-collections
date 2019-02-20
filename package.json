@@ -2,7 +2,9 @@
   "name": "tstl-gc-optimized-collections",
   "version": "0.5.1",
   "description": "Provides GC Optimized Collections for use when transpiling TS code to Lua",
-  "main": "./index.ts",
+  "main": "index.ts",
+  "typings": "index.ts",
+  "module": "index.ts",
   "scripts": {
     "test": "jest",
     "transpile": "tstl -p tsconfig.json"
