@@ -1,4 +1,4 @@
-import { GCOptimizedMap } from "../tstl-gc-optimized-collections";
+import { GCOptimizedMap } from "..";
 
 describe("GCOptimizedMap", () => {
     describe("constructor", () => {
