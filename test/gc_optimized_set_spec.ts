@@ -1,4 +1,4 @@
-import { GCOptimizedSet } from "../gc_optimized_set";
+import { GCOptimizedSet } from "../tstl-gc-optimized-collections";
 
 describe("GCOptimizedSet", () => {
     describe("constructor", () => {
