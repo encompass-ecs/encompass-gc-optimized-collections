@@ -2,12 +2,12 @@
   "name": "tstl-gc-optimized-collections",
   "version": "0.5.2",
   "description": "Provides GC Optimized Collections for use when transpiling TS code to Lua",
-  "main": "index.ts",
-  "typings": "index.ts",
-  "module": "index.ts",
+  "main": "./tstl-gc-optimized-collections/init.ts",
+  "typings": "./tstl-gc-optimized-collections/init.ts",
+  "module": "./tstl-gc-optimized-collections/init.ts",
   "scripts": {
     "test": "jest",
-    "transpile": "tstl -p tsconfig.json"
+    "build": "rm -rf ./build && tstl -p tsconfig.json && shx cp ./tstl-gc-optimized-collections.lua ./build"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",
     "typescript": "^3.3.3",
-    "typescript-to-lua": "^0.15.1"
+    "typescript-to-lua": "^0.15.1",
+    "shx": "^0.3.2"
   }
 }
