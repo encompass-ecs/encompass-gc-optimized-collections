@@ -9,10 +9,6 @@ export class GCOptimizedMap<TKey, TValue> {
         this.items = new Map<TKey, TValue>(other);
     }
 
-    public [Symbol.iterator]() {
-        return this.items[Symbol.iterator];
-    }
-
     public clear(): void {
         for (const [k, v] of this.items) {
             this.delete(k);
