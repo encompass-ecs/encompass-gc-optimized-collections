@@ -1,4 +1,5 @@
-import { GCOptimizedIterable } from "./gc_optimized_iterable";
+/** @luaIterator @tupleReturn */
+export interface GCOptimizedMapIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedMap<TKey, TValue> {
     get size(): number {
@@ -11,7 +12,7 @@ export class GCOptimizedMap<TKey, TValue> {
         this.items = new Map<TKey, TValue>(other);
     }
 
-    public iterable(): GCOptimizedIterable<[TKey, TValue]> {
+    public iterable(): GCOptimizedMapIterable<[TKey, TValue]> {
         return this.items;
     }
 
