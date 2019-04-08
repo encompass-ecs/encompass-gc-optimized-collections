@@ -9,6 +9,8 @@ export class GCOptimizedSet<TValue> {
         this.items = new Set<TValue>(other);
     }
 
+    public [Symbol.iterator] = this.items[Symbol.iterator];
+
     public add(value: TValue): GCOptimizedSet<TValue> {
         this.items.add(value);
         return this;
@@ -26,9 +28,5 @@ export class GCOptimizedSet<TValue> {
 
     public has(value: TValue): boolean {
         return this.items.has(value);
-    }
-
-    public forEach(callback: (value: TValue, key: TValue) => any): void {
-        this.items.forEach(callback);
     }
 }
