@@ -31,4 +31,8 @@ export class GCOptimizedSet<TValue> {
     public has(value: TValue): boolean {
         return this.items.has(value);
     }
+
+    public forEach(callback: (value: TValue, key: TValue) => any): void {
+        this.items.forEach(callback);
+    }
 }
