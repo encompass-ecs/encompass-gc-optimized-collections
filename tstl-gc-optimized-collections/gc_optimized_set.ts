@@ -1,3 +1,5 @@
+import { GCOptimizedIterable } from "./gc_optimized_iterable";
+
 export class GCOptimizedSet<TValue> {
     get size(): number {
         return this.items.size;
@@ -9,8 +11,7 @@ export class GCOptimizedSet<TValue> {
         this.items = new Set<TValue>(other);
     }
 
-    /** @luaIterator */
-    public iterable(): Iterable<TValue> {
+    public iterable(): GCOptimizedIterable<TValue> {
         return this.items;
     }
 
