@@ -20,6 +20,10 @@ GCOptimizedSet.prototype[Symbol.iterator] = function(self)
     return pairs(self.items)
 end
 
+GCOptimizedSet.prototype.iterable = function(self)
+    return pairs(self.items)
+end
+
 GCOptimizedSet.prototype.add = function(self, item)
     if not self:has(item) then
         self.size = self.size + 1

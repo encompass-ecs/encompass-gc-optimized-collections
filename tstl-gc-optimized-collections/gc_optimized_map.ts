@@ -13,6 +13,11 @@ export class GCOptimizedMap<TKey, TValue> {
         return this.items[Symbol.iterator]();
     }
 
+    /** @luaIterator */
+    public iterable(): Iterable<[TKey, TValue]> {
+        return this.items;
+    }
+
     public clear(): void {
         for (const [k, v] of this.items) {
             this.delete(k);

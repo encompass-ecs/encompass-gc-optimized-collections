@@ -13,6 +13,11 @@ export class GCOptimizedSet<TValue> {
         return this.items[Symbol.iterator]();
     }
 
+    /** @luaIterator */
+    public iterable(): Iterable<TValue> {
+        return this.items;
+    }
+
     public add(value: TValue): GCOptimizedSet<TValue> {
         this.items.add(value);
         return this;

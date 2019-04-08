@@ -34,6 +34,10 @@ GCOptimizedMap.prototype[Symbol.iterator] = function(self)
     return pairs(self.items)
 end
 
+GCOptimizedMap.prototype.iterable = function(self)
+    return pairs(self.items)
+end
+
 GCOptimizedMap.prototype.get = function(self, key)
     return self.items[key]
 end
