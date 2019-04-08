@@ -9,10 +9,8 @@ export class GCOptimizedSet<TValue> {
         this.items = new Set<TValue>(other);
     }
 
-    public *[Symbol.iterator]() {
-        for (const value of this.items) {
-            yield value;
-        }
+    public [Symbol.iterator]() {
+        return this.items[Symbol.iterator]();
     }
 
     public add(value: TValue): GCOptimizedSet<TValue> {

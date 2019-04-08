@@ -9,10 +9,8 @@ export class GCOptimizedMap<TKey, TValue> {
         this.items = new Map<TKey, TValue>(other);
     }
 
-    public *[Symbol.iterator]() {
-        for (const value of this.items) {
-            yield value;
-        }
+    public [Symbol.iterator]() {
+        return this.items[Symbol.iterator]();
     }
 
     public clear(): void {
