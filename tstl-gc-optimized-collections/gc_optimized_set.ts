@@ -9,6 +9,12 @@ export class GCOptimizedSet<TValue> {
         this.items = new Set<TValue>(other);
     }
 
+    public *[Symbol.iterator]() {
+        for (const value of this.items) {
+            yield value;
+        }
+    }
+
     public add(value: TValue): GCOptimizedSet<TValue> {
         this.items.add(value);
         return this;
@@ -22,13 +28,6 @@ export class GCOptimizedSet<TValue> {
 
     public delete(value: TValue): boolean {
         return this.items.delete(value);
-    }
-
-    public forEach(callback: (value: TValue, key: TValue, set: GCOptimizedSet<TValue>) => any): void {
-        for (const value of this.items) {
-            callback(value, value, this);
-        }
-        return;
     }
 
     public has(value: TValue): boolean {
