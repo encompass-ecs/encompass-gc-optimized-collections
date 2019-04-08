@@ -9,6 +9,10 @@ export class GCOptimizedMap<TKey, TValue> {
         this.items = new Map<TKey, TValue>(other);
     }
 
+    public [Symbol.iterator]() {
+        return this.items[Symbol.iterator];
+    }
+
     public clear(): void {
         for (const [k, v] of this.items) {
             this.delete(k);
@@ -31,9 +35,5 @@ export class GCOptimizedMap<TKey, TValue> {
     public set(key: TKey, value: TValue): GCOptimizedMap<TKey, TValue> {
         this.items.set(key, value);
         return this;
-    }
-
-    public forEach(callback: (value: TValue, key: TKey) => any): void {
-        this.items.forEach(callback);
     }
 }
