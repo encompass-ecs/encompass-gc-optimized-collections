@@ -10,7 +10,8 @@
         "sourceMap": true,
         "experimentalDecorators": true,
         "target": "es6",
-        "module": "commonjs"
+        "module": "commonjs",
+        "lib": ["dom", "es2017"]
     },
     "exclude": [
         "./test"

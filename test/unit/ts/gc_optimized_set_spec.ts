@@ -1,4 +1,4 @@
-import { GCOptimizedSet } from "..";
+import { GCOptimizedSet } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedSet", () => {
     describe("constructor", () => {
@@ -61,7 +61,9 @@ describe("GCOptimizedSet", () => {
 
         describe("one argument callback", () => {
             let count = 0;
-            mySet.forEach(i => { count += i; });
+            for (const v of mySet.iterable()) {
+                count += v;
+            }
 
             it("should iterate all entries", () => {
                 expect(count).toBe(9);
@@ -70,7 +72,9 @@ describe("GCOptimizedSet", () => {
 
         describe("two argument callback", () => {
             let count = 0;
-            mySet.forEach((value, key) => { count += key; });
+            for (const v of mySet.iterable()) {
+                count += v;
+            }
 
             it("should iterate all entries", () => {
                 expect(count).toBe(9);

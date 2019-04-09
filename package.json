@@ -6,7 +6,7 @@
   "typings": "./tstl-gc-optimized-collections/init.ts",
   "module": "./tstl-gc-optimized-collections/init.ts",
   "scripts": {
-    "test": "jest",
+    "test": "busted ./test && jest",
     "build": "rm -rf ./build && tstl -p tsconfig.json && shx cp ./tstl-gc-optimized-collections.lua ./build"
   },
   "repository": {
@@ -24,12 +24,16 @@
     "url": "https://gitlab.com/ehemsley/tstl-gc-optimized-collections/issues"
   },
   "homepage": "https://gitlab.com/ehemsley/tstl-gc-optimized-collections#readme",
+  "engines": {
+    "node": ">=8.5.0"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.5",
     "jest": "^23.6.0",
+    "shx": "^0.3.2",
     "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.3",
     "typescript": "^3.3.3",
-    "typescript-to-lua": "^0.15.1",
-    "shx": "^0.3.2"
+    "typescript-to-lua": "^0.17.0"
   }
 }

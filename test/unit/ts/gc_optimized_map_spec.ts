@@ -1,4 +1,4 @@
-import { GCOptimizedMap } from "..";
+import { GCOptimizedMap } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedMap", () => {
     describe("constructor", () => {
@@ -62,7 +62,9 @@ describe("GCOptimizedMap", () => {
     describe("forEach", () => {
         const myMap = new GCOptimizedMap([["a", 2], ["b", 3], ["c", 4]]);
         let count = 0;
-        myMap.forEach(i => count += i);
+        for (const [k, v] of myMap.iterable()) {
+            count += v;
+        }
 
         it("iterates over all entries", () => {
             expect(count).toBe(9);
