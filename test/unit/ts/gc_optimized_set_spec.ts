@@ -96,12 +96,6 @@ describe("GCOptimizedSet", () => {
                 expect(mySet.has("c")).toBeFalsy();
             });
         });
-
-        describe("argument is null", () => {
-            it("returns false", () => {
-                expect(mySet.has(null)).toBeFalsy();
-            });
-        });
     });
 
     describe("size", () => {

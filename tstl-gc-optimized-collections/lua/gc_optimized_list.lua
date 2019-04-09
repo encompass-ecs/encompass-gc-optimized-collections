@@ -47,8 +47,10 @@ GCOptimizedList.prototype.delete = function(self, index)
         self._size = self._size - 1
         while k < self:size() do
             local one_up_value = self.items[k + 1 + 1]
-            self.items[k + 1] = one_up_value
-            self.indices[one_up_value] = k + 1
+            if one_up_value ~= nil then
+                self.items[k + 1] = one_up_value
+                self.indices[one_up_value] = k + 1
+            end
             k = k + 1
         end
         self.items[self:size() + 1] = nil

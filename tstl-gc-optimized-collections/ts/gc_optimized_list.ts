@@ -33,15 +33,17 @@ export class GCOptimizedList<T> {
 
     public delete(index: number) {
         if (this.has(index)) {
-            const value = this.get(index);
+            const value = this.get(index)!;
             this.items.delete(index);
             this.indices.delete(value);
             let k = index;
             this._size -= 1;
             while (k < this.size()) {
                 const one_up_value = this.items.get(k+1);
-                this.items.set(k, one_up_value);
-                this.indices.set(one_up_value, k);
+                if (one_up_value !== undefined) {
+                    this.items.set(k, one_up_value);
+                    this.indices.set(one_up_value, k);
+                }
                 k += 1;
             }
             this.items.delete(this.size());
@@ -51,7 +53,7 @@ export class GCOptimizedList<T> {
 
     public indexOf(value: T): number | null {
         if (this.indices.has(value)) {
-            return this.indices.get(value);
+            return this.indices.get(value)!;
         } else {
             return null;
         }

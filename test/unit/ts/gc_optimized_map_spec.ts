@@ -101,12 +101,6 @@ describe("GCOptimizedMap", () => {
                 expect(myMap.has("c")).toBeFalsy();
             });
         });
-
-        describe("the argument is null", () => {
-            it("returns false", () => {
-                expect(myMap.has(null)).toBeFalsy();
-            });
-        });
     });
 
     describe("set", () => {
