@@ -13,6 +13,7 @@ end
 
 GCOptimizedList.prototype.__constructor = function(self)
     self.items = {}
+    self.indices = {}
     self._size = 0;
 end
 
@@ -22,6 +23,7 @@ end
 
 GCOptimizedList.prototype.add = function(self, value)
     self.items[self._size + 1] = value
+    self.indices[value] = self._size + 1
     self._size = self._size + 1
     return self
 end
@@ -30,21 +32,36 @@ GCOptimizedList.prototype.clear = function(self)
     for k in ipairs(self.items) do
         self.items[k] = nil
     end
+    for k in ipairs(self.indices) do
+        self.indices[k] = nil
+    end
     self._size = 0
 end
 
 GCOptimizedList.prototype.delete = function(self, index)
     if self:has(index) then
+        local value = self.items[index + 1]
         self.items[index + 1] = nil
+        self.indices[value] = nil
         local k = index
         self._size = self._size - 1
         while k < self:size() do
-            self.items[k + 1] = self.items[k + 1 + 1]
+            local one_up_value = self.items[k + 1 + 1]
+            self.items[k + 1] = one_up_value
+            self.indices[one_up_value] = k + 1
             k = k + 1
         end
         self.items[self:size() + 1] = nil
     end
     return self
+end
+
+GCOptimizedList.prototype.indexOf = function(self, value)
+    if self.indices[value] ~= nil then
+        return self.indices[value] - 1
+    else
+        return nil
+    end
 end
 
 GCOptimizedList.prototype.get = function(self, index)

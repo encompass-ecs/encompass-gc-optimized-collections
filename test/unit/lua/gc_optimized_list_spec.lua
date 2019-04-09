@@ -75,6 +75,21 @@ describe("GCOptimizedList", function()
         end)
     end)
 
+    describe("indexOf", function()
+        local myList = GCOptimizedList.new()
+
+        myList:add(6)
+        myList:add(10)
+        myList:add(16)
+        myList:add(25)
+        myList:delete(2)
+
+        it("returns the correct index", function()
+            assert.are.equal(0, myList:indexOf(6))
+            assert.are.equal(2, myList:indexOf(25))
+        end)
+    end)
+
     describe("get", function()
         local myList = GCOptimizedList.new()
         myList:add(5)

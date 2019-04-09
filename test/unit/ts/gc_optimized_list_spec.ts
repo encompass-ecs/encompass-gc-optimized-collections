@@ -54,6 +54,33 @@ describe("GCOptimizedList", () => {
         });
     });
 
+    describe("indexOf", () => {
+        describe("has value", () => {
+            const myList = new GCOptimizedList<number>();
+
+            myList.add(6);
+            myList.add(10);
+            myList.add(16);
+            myList.add(25);
+            myList.delete(2);
+
+            it("returns the correct index", () => {
+                expect(myList.indexOf(6)).toBe(0);
+                expect(myList.indexOf(25)).toBe(2);
+            });
+        });
+
+        describe("does not have value", () => {
+            const myList = new GCOptimizedList<number>();
+
+            myList.add(7);
+
+            it("returns null", () => {
+                expect(myList.indexOf(2)).toBeNull();
+            });
+        });
+    });
+
     describe("get", () => {
         const myList = new GCOptimizedList<number>();
 

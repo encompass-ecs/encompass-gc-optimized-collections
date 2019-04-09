@@ -3,10 +3,12 @@ export interface GCOptimizedListIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedList<T> {
     private items: Map<number, T>;
+    private indices: Map<T, number>;
     private _size: number;
 
     constructor() {
         this.items = new Map<number, T>();
+        this.indices = new Map<T, number>();
         this._size = 0;
     }
 
@@ -16,29 +18,43 @@ export class GCOptimizedList<T> {
 
     public add(value: T) {
         this.items.set(this._size, value);
+        this.indices.set(value, this._size);
         this._size += 1;
         return this;
     }
 
     public clear(): void {
-        for (const [k, _] of this.iterable()) {
-            this.delete(k);
+        for (const [k, v] of this.iterable()) {
+            this.items.delete(k);
+            this.indices.delete(v);
         }
         this._size = 0;
     }
 
     public delete(index: number) {
         if (this.has(index)) {
+            const value = this.get(index);
             this.items.delete(index);
+            this.indices.delete(value);
             let k = index;
             this._size -= 1;
             while (k < this.size()) {
-                this.items.set(k, this.items.get(k+1));
+                const one_up_value = this.items.get(k+1);
+                this.items.set(k, one_up_value);
+                this.indices.set(one_up_value, k);
                 k += 1;
             }
             this.items.delete(this.size());
         }
         return this;
+    }
+
+    public indexOf(value: T): number | null {
+        if (this.indices.has(value)) {
+            return this.indices.get(value);
+        } else {
+            return null;
+        }
     }
 
     public get(index: number): T | undefined {
