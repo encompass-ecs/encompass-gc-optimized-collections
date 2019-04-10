@@ -16,10 +16,6 @@ GCOptimizedSet.prototype.__constructor = function(self)
     self.size = 0
 end
 
-GCOptimizedSet.prototype[Symbol.iterator] = function(self)
-    return pairs(self.items)
-end
-
 GCOptimizedSet.prototype.iterable = function(self)
     return pairs(self.items)
 end

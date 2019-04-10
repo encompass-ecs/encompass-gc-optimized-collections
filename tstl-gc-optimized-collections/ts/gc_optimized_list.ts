@@ -2,9 +2,9 @@
 export interface GCOptimizedListIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedList<T> {
-    private items: Map<number, T>;
-    private indices: Map<T, number>;
-    private _size: number;
+    protected items: Map<number, T>;
+    protected indices: Map<T, number>;
+    protected _size: number;
 
     constructor() {
         this.items = new Map<number, T>();
@@ -16,11 +16,10 @@ export class GCOptimizedList<T> {
         return this.items;
     }
 
-    public add(value: T) {
+    public add(value: T): void {
         this.items.set(this._size, value);
         this.indices.set(value, this._size);
         this._size += 1;
-        return this;
     }
 
     public clear(): void {
