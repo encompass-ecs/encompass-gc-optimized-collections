@@ -1,6 +1,7 @@
+local current_folder = (...):gsub('%.[^%.]+$', '') .. '.'
 local exports = {}
 
-local gc_optimized_list = require("tstl-gc-optimized-collections")
+local gc_optimized_list = require(current_folder .. "gc_optimized_list")
 local GCOptimizedList = gc_optimized_list.GCOptimizedList
 
 local GCOptimizedSortedList = {}
