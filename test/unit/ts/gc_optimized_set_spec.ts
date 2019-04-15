@@ -1,7 +1,7 @@
 import { GCOptimizedSet } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedSet", () => {
-        describe("Empty", () => {
+    describe("Empty", () => {
         it("should be empty", () => {
             expect(GCOptimizedSet.Empty.size).toBe(0);
         });
