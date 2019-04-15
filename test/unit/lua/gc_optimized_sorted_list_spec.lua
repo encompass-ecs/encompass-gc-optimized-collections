@@ -3,7 +3,7 @@ local GCOptimizedSortedList = require("tstl-gc-optimized-collections.lua.gc_opti
 describe("GCOptimizedSortedList", function()
     describe("Empty", function()
         it("should be empty", function()
-            assert.is.equal(0, GCOptimizedSortedList.Empty:size())
+            assert.is.equal(0, GCOptimizedSortedList.Empty.size)
         end)
     end)
 

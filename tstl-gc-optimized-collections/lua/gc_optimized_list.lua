@@ -14,7 +14,7 @@ end
 GCOptimizedList.prototype.__constructor = function(self)
     self.items = {}
     self.indices = {}
-    self._size = 0;
+    self.size = 0;
 end
 
 GCOptimizedList.prototype.iterable = function(self)
@@ -22,9 +22,9 @@ GCOptimizedList.prototype.iterable = function(self)
 end
 
 GCOptimizedList.prototype.add = function(self, value)
-    self.items[self._size + 1] = value
-    self.indices[value] = self._size + 1
-    self._size = self._size + 1
+    self.items[self.size + 1] = value
+    self.indices[value] = self.size + 1
+    self.size = self.size + 1
     return self
 end
 
@@ -35,7 +35,7 @@ GCOptimizedList.prototype.clear = function(self)
     for k in ipairs(self.indices) do
         self.indices[k] = nil
     end
-    self._size = 0
+    self.size = 0
 end
 
 GCOptimizedList.prototype.delete = function(self, index)
@@ -44,8 +44,8 @@ GCOptimizedList.prototype.delete = function(self, index)
         self.items[index + 1] = nil
         self.indices[value] = nil
         local k = index
-        self._size = self._size - 1
-        while k < self:size() do
+        self.size = self.size - 1
+        while k < self.size do
             local one_up_value = self.items[k + 1 + 1]
             if one_up_value ~= nil then
                 self.items[k + 1] = one_up_value
@@ -53,7 +53,7 @@ GCOptimizedList.prototype.delete = function(self, index)
             end
             k = k + 1
         end
-        self.items[self:size() + 1] = nil
+        self.items[self.size + 1] = nil
     end
     return self
 end
@@ -71,7 +71,7 @@ GCOptimizedList.prototype.get = function(self, index)
 end
 
 GCOptimizedList.prototype.empty = function(self)
-    return self._size == 0
+    return self.size == 0
 end
 
 GCOptimizedList.prototype.has = function(self, index)
@@ -90,16 +90,12 @@ end
 
 GCOptimizedList.prototype.pop = function(self)
     if not self:empty() then
-        local item = self.items[self:size() - 1 + 1]
-        self:delete(self:size() - 1)
+        local item = self.items[self.size - 1 + 1]
+        self:delete(self.size - 1)
         return item
     else
         return nil
     end
-end
-
-GCOptimizedList.prototype.size = function(self)
-    return self._size
 end
 
 GCOptimizedList.Empty = GCOptimizedList.new()
