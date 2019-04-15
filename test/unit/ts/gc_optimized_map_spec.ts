@@ -1,6 +1,12 @@
 import { GCOptimizedMap } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedMap", () => {
+    describe("Empty", () => {
+        it("should be empty", () => {
+            expect(GCOptimizedMap.Empty.size).toBe(0);
+        });
+    });
+
     describe("constructor", () => {
         describe("no argument", () => {
             const myMap = new GCOptimizedMap();

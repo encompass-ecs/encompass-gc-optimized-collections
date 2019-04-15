@@ -1,6 +1,12 @@
 local GCOptimizedSortedList = require("tstl-gc-optimized-collections.lua.gc_optimized_sorted_list").GCOptimizedSortedList
 
 describe("GCOptimizedSortedList", function()
+    describe("Empty", function()
+        it("should be empty", function()
+            assert.is.equal(0, GCOptimizedSortedList.Empty:size())
+        end)
+    end)
+
     describe("add", function()
         local myList = GCOptimizedSortedList.new()
 

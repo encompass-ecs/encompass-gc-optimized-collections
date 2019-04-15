@@ -102,5 +102,7 @@ GCOptimizedList.prototype.size = function(self)
     return self._size
 end
 
+GCOptimizedList.Empty = GCOptimizedList.new()
+
 exports.GCOptimizedList = GCOptimizedList
 return exports

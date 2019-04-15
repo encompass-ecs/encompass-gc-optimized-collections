@@ -46,5 +46,7 @@ GCOptimizedSet.prototype.has = function(self, item)
     return self.items[item] ~= nil
 end
 
+GCOptimizedSet.Empty = GCOptimizedSet.new();
+
 exports.GCOptimizedSet = GCOptimizedSet
 return exports

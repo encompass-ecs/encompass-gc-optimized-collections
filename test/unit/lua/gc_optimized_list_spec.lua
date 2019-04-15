@@ -1,6 +1,12 @@
 local GCOptimizedList = require("tstl-gc-optimized-collections.lua.gc_optimized_list").GCOptimizedList
 
 describe("GCOptimizedList", function()
+    describe("Empty", function()
+        it("should be empty", function()
+            assert.is.equal(0, GCOptimizedList.Empty:size())
+        end)
+    end)
+
     describe("iterable", function()
         local myList = GCOptimizedList.new()
 

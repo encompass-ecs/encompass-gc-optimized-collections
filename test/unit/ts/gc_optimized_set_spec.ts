@@ -1,6 +1,12 @@
 import { GCOptimizedSet } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedSet", () => {
+        describe("Empty", () => {
+        it("should be empty", () => {
+            expect(GCOptimizedSet.Empty.size).toBe(0);
+        });
+    });
+
     describe("constructor", () => {
         describe("constructed with no argument", () => {
             const mySet = new GCOptimizedSet();

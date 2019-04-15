@@ -2,6 +2,12 @@
 export interface GCOptimizedListIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedList<T> {
+    public static readonly Empty = new GCOptimizedList<any>();
+
+    get size(): number {
+        return this._size;
+    }
+
     protected items: Map<number, T>;
     protected indices: Map<T, number>;
     protected _size: number;
@@ -37,7 +43,7 @@ export class GCOptimizedList<T> {
             this.indices.delete(value);
             let k = index;
             this._size -= 1;
-            while (k < this.size()) {
+            while (k < this.size) {
                 const one_up_value = this.items.get(k+1);
                 if (one_up_value !== undefined) {
                     this.items.set(k, one_up_value);
@@ -45,7 +51,7 @@ export class GCOptimizedList<T> {
                 }
                 k += 1;
             }
-            this.items.delete(this.size());
+            this.items.delete(this.size);
         }
         return this;
     }
@@ -63,7 +69,7 @@ export class GCOptimizedList<T> {
     }
 
     public empty(): boolean {
-        return this.size() == 0;
+        return this.size == 0;
     }
 
     public has(index: number): boolean {
@@ -82,15 +88,11 @@ export class GCOptimizedList<T> {
 
     public pop(): T | undefined {
         if (!this.empty()) {
-            const item = this.items.get(this.size() - 1);
-            this.delete(this.size() - 1);
+            const item = this.items.get(this.size - 1);
+            this.delete(this.size - 1);
             return item;
         } else {
             return undefined;
         }
-    }
-
-    public size(): number {
-        return this._size;
     }
 }

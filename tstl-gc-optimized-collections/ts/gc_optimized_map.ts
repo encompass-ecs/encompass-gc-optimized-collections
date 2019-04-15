@@ -2,6 +2,8 @@
 export interface GCOptimizedMapIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedMap<TKey, TValue> {
+    public static readonly Empty = new GCOptimizedMap<any, any>();
+
     get size(): number {
         return this.items.size;
     }

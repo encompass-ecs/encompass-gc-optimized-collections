@@ -1,6 +1,12 @@
 import { GCOptimizedList } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedList", () => {
+    describe("Empty", () => {
+        it("should be empty", () => {
+            expect(GCOptimizedList.Empty.empty()).toBeTruthy();
+        });
+    });
+
     describe("add", () => {
         const myList = new GCOptimizedList<number>();
         myList.add(2);
@@ -28,7 +34,7 @@ describe("GCOptimizedList", () => {
         myList.clear();
 
         it("should have size 0", () => {
-            expect(myList.size()).toBe(0);
+            expect(myList.size).toBe(0);
         });
 
         it("should not have the first element", () => {
@@ -165,7 +171,7 @@ describe("GCOptimizedList", () => {
             });
 
             it("deletes the first element", () => {
-                expect(myList.size()).toBe(1);
+                expect(myList.size).toBe(1);
                 expect(myList.get(0)).toBe(6);
             });
         });
@@ -194,7 +200,7 @@ describe("GCOptimizedList", () => {
             });
 
             it("deletes the last element", () => {
-                expect(myList.size()).toBe(2);
+                expect(myList.size).toBe(2);
                 expect(myList.get(0)).toBe(4);
                 expect(myList.get(1)).toBe(6);
             });

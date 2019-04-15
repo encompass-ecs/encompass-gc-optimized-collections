@@ -41,5 +41,7 @@ GCOptimizedSortedList.prototype.add = function(self, value)
     self._size = self._size + 1
 end
 
+GCOptimizedSortedList.Empty = GCOptimizedSortedList.new()
+
 exports.GCOptimizedSortedList = GCOptimizedSortedList
 return exports

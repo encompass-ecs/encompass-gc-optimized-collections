@@ -2,6 +2,8 @@
 export interface GCOptimizedSetIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedSet<TValue> {
+    public static readonly Empty = new GCOptimizedSet<any>();
+
     get size(): number {
         return this.items.size;
     }

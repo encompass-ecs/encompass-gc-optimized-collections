@@ -1,6 +1,12 @@
 import { GCOptimizedSortedList } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedSortedList", () => {
+    describe("Empty", () => {
+        it("should be empty", () => {
+            expect(GCOptimizedSortedList.Empty.empty()).toBeTruthy();
+        });
+    });
+
     describe("add", () => {
         const myList = new GCOptimizedSortedList<number>();
         myList.add(6);
