@@ -17,7 +17,7 @@ describe("GCOptimizedMap", () => {
         });
 
         describe("iterable argument", () => {
-            const myMap = new GCOptimizedMap([["a", "c"],["b", "d"]]);
+            const myMap = new GCOptimizedMap(["a", "c"],["b", "d"]);
 
             it("should have size 2", () => {
                 expect(myMap.size).toBe(2);
@@ -34,7 +34,7 @@ describe("GCOptimizedMap", () => {
     });
 
     describe("clear", () => {
-        const myMap = new GCOptimizedMap<string, string>([["a","c"], ["b","d"]]);
+        const myMap = new GCOptimizedMap<string, string>(["a","c"], ["b","d"]);
 
         myMap.clear();
 
@@ -52,7 +52,7 @@ describe("GCOptimizedMap", () => {
     });
 
     describe("delete", () => {
-        const myMap = new GCOptimizedMap([["a", "c"],["b", "d"]]);
+        const myMap = new GCOptimizedMap(["a", "c"],["b", "d"]);
 
         myMap.delete("a");
 
@@ -66,7 +66,7 @@ describe("GCOptimizedMap", () => {
     });
 
     describe("forEach", () => {
-        const myMap = new GCOptimizedMap([["a", 2], ["b", 3], ["c", 4]]);
+        const myMap = new GCOptimizedMap(["a", 2], ["b", 3], ["c", 4]);
         let count = 0;
         for (const [k, v] of myMap.iterable()) {
             count += v;
@@ -78,7 +78,7 @@ describe("GCOptimizedMap", () => {
     });
 
     describe("get", () => {
-        const myMap = new GCOptimizedMap([["a", "c"], ["b", "d"]]);
+        const myMap = new GCOptimizedMap(["a", "c"], ["b", "d"]);
 
         describe("the map has the key", () => {
             it("gets the value from the key", () => {
@@ -94,7 +94,7 @@ describe("GCOptimizedMap", () => {
     });
 
     describe("has", () => {
-        const myMap = new GCOptimizedMap([["a", "c"]]);
+        const myMap = new GCOptimizedMap(["a", "c"]);
 
         describe("the map has the key", () => {
             it("returns true", () => {
@@ -143,7 +143,7 @@ describe("GCOptimizedMap", () => {
         });
 
         describe("the map is constructed with 2 entries", () => {
-            const m = new GCOptimizedMap([[1,2],[3,4]]);
+            const m = new GCOptimizedMap([1,2],[3,4]);
 
             it("returns 2", () => {
                 expect(m.size).toBe(2);
@@ -151,7 +151,7 @@ describe("GCOptimizedMap", () => {
         });
 
         describe("the map is cleared", () => {
-            const m = new GCOptimizedMap([[1,2],[3,4]]);
+            const m = new GCOptimizedMap([1,2],[3,4]);
             m.clear();
 
             it("returns 0", () => {
@@ -160,7 +160,7 @@ describe("GCOptimizedMap", () => {
         });
 
         describe("the map has 2 entries and 1 is deleted", () => {
-            const m = new GCOptimizedMap([[1,2], [3,4]]);
+            const m = new GCOptimizedMap([1,2], [3,4]);
             m.delete(1);
 
             it("returns 1", () => {

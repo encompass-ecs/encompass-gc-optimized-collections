@@ -11,9 +11,14 @@ GCOptimizedMap.new = function(...)
     return self
 end
 
-GCOptimizedMap.prototype.__constructor = function(self, other)
+GCOptimizedMap.prototype.__constructor = function(self, ...)
     self.items = {}
     self.size = 0
+
+    for _, entry in ipairs({...}) do
+        self.items[entry[1]] = entry[2]
+        self.size = self.size + 1
+    end
 end
 
 GCOptimizedMap.prototype.clear = function(self)

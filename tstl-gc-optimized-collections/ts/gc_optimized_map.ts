@@ -10,8 +10,8 @@ export class GCOptimizedMap<TKey, TValue> {
 
     private items: Map<TKey, TValue>;
 
-    constructor(other?: ReadonlyArray<[TKey, TValue]>) {
-        this.items = new Map<TKey, TValue>(other);
+    constructor(...entries: [TKey, TValue][]) {
+        this.items = new Map<TKey, TValue>(entries);
     }
 
     public iterable(): GCOptimizedMapIterable<[TKey, TValue]> {
