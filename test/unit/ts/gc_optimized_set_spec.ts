@@ -17,7 +17,7 @@ describe("GCOptimizedSet", () => {
         });
 
         describe("constructed with iterable", () => {
-            const mySet = new GCOptimizedSet(["a", "b"]);
+            const mySet = new GCOptimizedSet("a", "b");
 
             it("should have all given elements", () => {
                 expect(mySet.has("a")).toBeTruthy();
@@ -36,7 +36,7 @@ describe("GCOptimizedSet", () => {
     });
 
     describe("clear", () => {
-        const mySet = new GCOptimizedSet<number>([0, 1]);
+        const mySet = new GCOptimizedSet<number>(0, 1);
 
         mySet.clear();
 
@@ -54,7 +54,7 @@ describe("GCOptimizedSet", () => {
     });
 
     describe("delete", () => {
-        const mySet = new GCOptimizedSet(["a", "b"]);
+        const mySet = new GCOptimizedSet("a", "b");
         mySet.delete("a");
 
         it("should not have deleted element", () => {
@@ -63,7 +63,7 @@ describe("GCOptimizedSet", () => {
     });
 
     describe("forEach", () => {
-        const mySet = new GCOptimizedSet([2, 3, 4]);
+        const mySet = new GCOptimizedSet(2, 3, 4);
 
         describe("one argument callback", () => {
             let count = 0;
@@ -89,7 +89,7 @@ describe("GCOptimizedSet", () => {
     });
 
     describe("has", () => {
-        const mySet = new GCOptimizedSet(["a", "b"]);
+        const mySet = new GCOptimizedSet("a", "b");
 
         describe("set has element", () => {
             it("returns true", () => {
@@ -123,7 +123,7 @@ describe("GCOptimizedSet", () => {
         });
 
         describe("set constructed with 2 elements", () => {
-            const mySet = new GCOptimizedSet([1,2]);
+            const mySet = new GCOptimizedSet(1,2);
 
             it("returns 2", () => {
                 expect(mySet.size).toBe(2);
@@ -131,7 +131,7 @@ describe("GCOptimizedSet", () => {
         });
 
         describe("set constructed with 2 elements and cleared", () => {
-            const mySet = new GCOptimizedSet([1,2]);
+            const mySet = new GCOptimizedSet(1,2);
             mySet.clear();
 
             it("returns 0", () => {
@@ -140,7 +140,7 @@ describe("GCOptimizedSet", () => {
         });
 
         describe("set constructed with 2 elements and 1 is deleted", () => {
-            const mySet = new GCOptimizedSet([1,2]);
+            const mySet = new GCOptimizedSet(1,2);
             mySet.delete(1);
 
             it("returns 1", () => {

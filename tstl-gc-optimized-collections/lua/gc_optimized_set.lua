@@ -11,9 +11,14 @@ GCOptimizedSet.new = function(...)
     return self
 end
 
-GCOptimizedSet.prototype.__constructor = function(self)
+GCOptimizedSet.prototype.__constructor = function(self, ...)
     self.items = {}
     self.size = 0
+
+    for _, item in ipairs({...}) do
+        self.items[item] = true
+        self.size = self.size + 1
+    end
 end
 
 GCOptimizedSet.prototype.iterable = function(self)
