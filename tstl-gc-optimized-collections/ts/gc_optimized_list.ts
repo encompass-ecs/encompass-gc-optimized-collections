@@ -1,5 +1,8 @@
 /** @luaIterator @tupleReturn */
-export interface GCOptimizedListIterable<T> extends Iterable<T> {}
+export interface GCOptimizedListEntriesIterable<T> extends Iterable<T> {}
+
+/** @luaIterator */
+export interface GCOptimizedListValuesIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedList<T> {
     public static readonly Empty = new GCOptimizedList<any>();
@@ -18,11 +21,11 @@ export class GCOptimizedList<T> {
         this._size = 0;
     }
 
-    public entries(): GCOptimizedListIterable<[number, T]> {
+    public entries(): GCOptimizedListEntriesIterable<[number, T]> {
         return this.items;
     }
 
-    public values(): GCOptimizedListIterable<T> {
+    public values(): GCOptimizedListValuesIterable<T> {
         return this.items.values();
     }
 
