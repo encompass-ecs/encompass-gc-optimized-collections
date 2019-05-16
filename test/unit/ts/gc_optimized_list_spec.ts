@@ -231,11 +231,11 @@ describe("GCOptimizedList", () => {
         it("iterates values in order", () => {
             const myList = new GCOptimizedList<number>();
 
-            myList.add(0);
-            myList.add(1);
-            myList.add(2);
+            myList.add(3);
+            myList.add(4);
+            myList.add(5);
 
-            let loop_counter = 0;
+            let loop_counter = 3;
             let value_sum = 0;
             for (const v of myList.values()) {
                 expect(v).toBe(loop_counter);
@@ -243,7 +243,7 @@ describe("GCOptimizedList", () => {
                 loop_counter += 1;
             }
 
-            expect(value_sum).toBe(3);
+            expect(value_sum).toBe(12);
         });
     });
 });

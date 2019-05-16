@@ -21,8 +21,26 @@ GCOptimizedList.prototype.entries = function(self)
     return ipairs(self.items)
 end
 
+-- values-only iteration by doing reverse lookup
+local function iter(list, v)
+    local next_index
+    if not v then
+        next_index = 1
+    else
+        next_index = list.indices[v] + 1
+    end
+    local next_value = list.items[next_index]
+    if next_value then
+        return next_value, next_value
+    end
+end
+
+local function ivalues(list)
+    return iter, list, nil
+end
+
 GCOptimizedList.prototype.values = function(self)
-    return ipairs(self.items)
+    return ivalues(self)
 end
 
 GCOptimizedList.prototype.add = function(self, value)

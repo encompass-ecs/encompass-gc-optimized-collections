@@ -42,7 +42,7 @@ describe("GCOptimizedList", function()
 
             local results = {}
 
-            for _, v in myList:values() do
+            for v in myList:values() do
                 table.insert(results, v)
             end
 
