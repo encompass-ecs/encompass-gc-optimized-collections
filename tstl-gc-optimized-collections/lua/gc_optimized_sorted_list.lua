@@ -31,7 +31,7 @@ local function insert(self, index, value)
 end
 
 GCOptimizedSortedList.prototype.add = function(self, value)
-    for index, v in self:iterable() do
+    for index, v in self:entries() do
         if value < v then
             insert(self, index, value)
             return

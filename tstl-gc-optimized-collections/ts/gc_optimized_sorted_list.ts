@@ -2,7 +2,7 @@ import { GCOptimizedList } from "../init";
 
 export class GCOptimizedSortedList<T> extends GCOptimizedList<T> {
     public add(value: T): void {
-        for (const [index, v] of this.iterable()) {
+        for (const [index, v] of this.entries()) {
             if (value < v) {
                 this.insert(index, value);
                 return;

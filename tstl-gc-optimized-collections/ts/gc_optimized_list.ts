@@ -18,8 +18,12 @@ export class GCOptimizedList<T> {
         this._size = 0;
     }
 
-    public iterable(): GCOptimizedListIterable<[number, T]> {
+    public entries(): GCOptimizedListIterable<[number, T]> {
         return this.items;
+    }
+
+    public values(): GCOptimizedListIterable<T> {
+        return this.items.values();
     }
 
     public add(value: T): void {
@@ -29,7 +33,7 @@ export class GCOptimizedList<T> {
     }
 
     public clear(): void {
-        for (const [k, v] of this.iterable()) {
+        for (const [k, v] of this.entries()) {
             this.items.delete(k);
             this.indices.delete(v);
         }

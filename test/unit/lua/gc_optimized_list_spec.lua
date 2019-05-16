@@ -7,26 +7,50 @@ describe("GCOptimizedList", function()
         end)
     end)
 
-    describe("iterable", function()
-        local myList = GCOptimizedList.new()
+    describe("entries", function()
+        it("iterates in order", function()
+            local myList = GCOptimizedList.new()
 
-        myList:add(4)
-        myList:add(7)
-        myList:add(10)
-        myList:add(12)
-        myList:add(56)
-        myList:delete(1)
+            myList:add(4)
+            myList:add(7)
+            myList:add(10)
+            myList:add(12)
+            myList:add(56)
+            myList:delete(1)
 
-        local results = {}
+            local results = {}
 
-        for k, v in myList:iterable() do
-            table.insert(results, v)
-        end
+            for k, v in myList:entries() do
+                table.insert(results, v)
+            end
 
-        assert.are.equal(4, results[1])
-        assert.are.equal(10, results[2])
-        assert.are.equal(12, results[3])
-        assert.are.equal(56, results[4])
+            assert.are.equal(4, results[1])
+            assert.are.equal(10, results[2])
+            assert.are.equal(12, results[3])
+            assert.are.equal(56, results[4])
+        end)
+    end)
+
+    describe("values", function()
+        it("iterates in order", function()
+            local myList = GCOptimizedList.new()
+
+            myList:add(5)
+            myList:add(0)
+            myList:add(10)
+            myList:add(12)
+
+            local results = {}
+
+            for _, v in myList:values() do
+                table.insert(results, v)
+            end
+
+            assert.are.equal(5, results[1])
+            assert.are.equal(0, results[2])
+            assert.are.equal(10, results[3])
+            assert.are.equal(12, results[4])
+        end)
     end)
 
     describe("add", function()

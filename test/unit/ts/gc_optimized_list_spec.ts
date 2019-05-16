@@ -206,4 +206,44 @@ describe("GCOptimizedList", () => {
             });
         })
     });
+
+    describe("entries", () => {
+        it("iterates indices and values in order", () => {
+            const myList = new GCOptimizedList<number>();
+
+            myList.add(4);
+            myList.add(3);
+            myList.add(1);
+
+            let value_sum = 0;
+            let loop_counter = 0;
+            for (const [i, v] of myList.entries()) {
+                expect(i).toBe(loop_counter);
+                value_sum += v;
+                loop_counter += 1;
+            }
+
+            expect(value_sum).toBe(8);
+        });
+    });
+
+    describe("values", () => {
+        it("iterates values in order", () => {
+            const myList = new GCOptimizedList<number>();
+
+            myList.add(0);
+            myList.add(1);
+            myList.add(2);
+
+            let loop_counter = 0;
+            let value_sum = 0;
+            for (const v of myList.values()) {
+                expect(v).toBe(loop_counter);
+                value_sum += v;
+                loop_counter += 1;
+            }
+
+            expect(value_sum).toBe(3);
+        });
+    });
 });

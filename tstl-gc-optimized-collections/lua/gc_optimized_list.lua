@@ -17,7 +17,11 @@ GCOptimizedList.prototype.__constructor = function(self)
     self.size = 0;
 end
 
-GCOptimizedList.prototype.iterable = function(self)
+GCOptimizedList.prototype.entries = function(self)
+    return ipairs(self.items)
+end
+
+GCOptimizedList.prototype.values = function(self)
     return ipairs(self.items)
 end
 
