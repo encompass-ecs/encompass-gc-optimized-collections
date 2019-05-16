@@ -32,7 +32,21 @@ describe("GCOptimizedList", function()
     end)
 
     describe("values", function()
-        it("iterates in order", function()
+        describe("empty", function()
+            local myList = GCOptimizedList.new()
+
+            it("does nothing", function()
+                local results = {}
+
+                for v in myList:values() do
+                    table.insert(results, v)
+                end
+
+                assert.is_nil(next(results))
+            end)
+        end)
+
+        describe("not empty", function()
             local myList = GCOptimizedList.new()
 
             myList:add(5)
@@ -40,16 +54,18 @@ describe("GCOptimizedList", function()
             myList:add(10)
             myList:add(12)
 
-            local results = {}
+            it("iterates in order", function()
+                local results = {}
 
-            for v in myList:values() do
-                table.insert(results, v)
-            end
+                for v in myList:values() do
+                    table.insert(results, v)
+                end
 
-            assert.are.equal(5, results[1])
-            assert.are.equal(0, results[2])
-            assert.are.equal(10, results[3])
-            assert.are.equal(12, results[4])
+                assert.are.equal(5, results[1])
+                assert.are.equal(0, results[2])
+                assert.are.equal(10, results[3])
+                assert.are.equal(12, results[4])
+            end)
         end)
     end)
 

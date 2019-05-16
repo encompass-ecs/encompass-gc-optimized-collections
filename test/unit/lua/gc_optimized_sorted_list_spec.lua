@@ -54,4 +54,42 @@ describe("GCOptimizedSortedList", function()
             assert.are.equal(10, myList:get(2))
         end)
     end)
+
+    describe("values", function()
+        describe("empty", function()
+            local myList = GCOptimizedSortedList.new()
+
+            it("does nothing", function()
+                local results = {}
+
+                for v in myList:values() do
+                    table.insert(results, v)
+                end
+
+                assert.is_nil(next(results))
+            end)
+        end)
+
+        describe("not empty", function()
+            local myList = GCOptimizedSortedList.new()
+
+            myList:add(5)
+            myList:add(0)
+            myList:add(10)
+            myList:add(12)
+
+            it("iterates in sorted order", function()
+                local results = {}
+
+                for v in myList:values() do
+                    table.insert(results, v)
+                end
+
+                assert.are.equal(0, results[1])
+                assert.are.equal(5, results[2])
+                assert.are.equal(10, results[3])
+                assert.are.equal(12, results[4])
+            end)
+        end)
+    end)
 end)

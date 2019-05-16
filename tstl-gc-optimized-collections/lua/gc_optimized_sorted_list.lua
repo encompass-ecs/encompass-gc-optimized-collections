@@ -24,9 +24,11 @@ local function insert(self, index, value)
     local k = self.size + 1
     while k > index do
         self.items[k] = self.items[k - 1]
+        self.indices[self.items[k]] = k
         k = k - 1
     end
     self.items[index] = value
+    self.indices[value] = self.size
     self.size = self.size + 1
 end
 
@@ -38,6 +40,7 @@ GCOptimizedSortedList.prototype.add = function(self, value)
         end
     end
     self.items[self.size + 1] = value
+    self.indices[value] = self.size + 1
     self.size = self.size + 1
 end
 
