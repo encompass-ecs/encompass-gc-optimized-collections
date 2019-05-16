@@ -51,10 +51,10 @@ GCOptimizedList.prototype.add = function(self, value)
 end
 
 GCOptimizedList.prototype.clear = function(self)
-    for k in ipairs(self.items) do
+    for k in pairs(self.items) do
         self.items[k] = nil
     end
-    for k in ipairs(self.indices) do
+    for k in pairs(self.indices) do
         self.indices[k] = nil
     end
     self.size = 0

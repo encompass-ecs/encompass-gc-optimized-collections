@@ -105,6 +105,10 @@ describe("GCOptimizedList", function()
         it("should not have the second element", function()
             assert.are.equal(false, myList:hasIndex(1))
         end)
+
+        it("should clear the indices list", function()
+            assert.is_nil(next(myList.indices))
+        end)
     end)
 
     describe("delete", function()
