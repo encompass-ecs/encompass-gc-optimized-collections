@@ -60,6 +60,21 @@ describe("GCOptimizedList", () => {
         });
     });
 
+    describe("deleteValue", () => {
+        const myList = new GCOptimizedList<number>();
+        myList.add(100);
+        myList.add(101);
+        myList.add(102);
+        myList.add(103);
+
+        myList.deleteValue(101);
+
+        it("restructures", () => {
+            expect(myList.get(1)).toBe(102);
+            expect(myList.get(2)).toBe(103);
+        });
+    });
+
     describe("indexOf", () => {
         describe("has value", () => {
             const myList = new GCOptimizedList<number>();

@@ -105,6 +105,21 @@ describe("GCOptimizedList", function()
         end)
     end)
 
+    describe("deleteValue", function()
+        local myList = GCOptimizedList.new()
+        myList:add(100)
+        myList:add(101)
+        myList:add(102)
+        myList:add(103)
+
+        myList:deleteValue(101)
+
+        it("restructures", function()
+            assert.are.equal(102, myList:get(1))
+            assert.are.equal(103, myList:get(2))
+        end)
+    end)
+
     describe("indexOf", function()
         local myList = GCOptimizedList.new()
 

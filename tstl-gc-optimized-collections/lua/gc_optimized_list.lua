@@ -80,6 +80,13 @@ GCOptimizedList.prototype.delete = function(self, index)
     return self
 end
 
+GCOptimizedList.prototype.deleteValue = function(self, value)
+    local index = self.indices[value]
+    if index ~= nil then
+        self:delete(index - 1)
+    end
+end
+
 GCOptimizedList.prototype.indexOf = function(self, value)
     if self.indices[value] ~= nil then
         return self.indices[value] - 1

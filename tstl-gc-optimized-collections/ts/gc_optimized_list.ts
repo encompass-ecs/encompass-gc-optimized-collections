@@ -60,6 +60,13 @@ export class GCOptimizedList<T> {
         return this;
     }
 
+    public deleteValue(value: T) {
+        const index = this.indexOf(value);
+        if (index !== null) {
+            this.delete(index);
+        }
+    }
+
     public indexOf(value: T): number | null {
         if (this.indices.has(value)) {
             return this.indices.get(value)!;
