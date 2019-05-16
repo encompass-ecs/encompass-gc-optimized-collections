@@ -38,11 +38,11 @@ describe("GCOptimizedList", () => {
         });
 
         it("should not have the first element", () => {
-            expect(myList.has(0)).toBeFalsy();
+            expect(myList.hasIndex(0)).toBeFalsy();
         });
 
         it("should not have second element", () => {
-            expect(myList.has(1)).toBeFalsy();
+            expect(myList.hasIndex(1)).toBeFalsy();
         });
     });
 
@@ -156,7 +156,7 @@ describe("GCOptimizedList", () => {
             myList.add(400);
 
             it("returns true", () => {
-                expect(myList.has(1)).toBeTruthy();
+                expect(myList.hasIndex(1)).toBeTruthy();
             });
         });
 
@@ -167,7 +167,26 @@ describe("GCOptimizedList", () => {
             myList.add(350);
 
             it("returns false", () => {
-                expect(myList.has(400)).toBeFalsy();
+                expect(myList.hasIndex(400)).toBeFalsy();
+            });
+        });
+    });
+
+    describe("hasValue", () => {
+        const myList = new GCOptimizedList<number>();
+
+        myList.add(3);
+        myList.add(400);
+
+        describe("list has value", () => {
+            it("returns true", () => {
+                expect(myList.hasValue(400)).toBeTruthy();
+            });
+        });
+
+        describe("list does not have value", () => {
+            it("returns false", () => {
+                expect(myList.hasValue(1)).toBeFalsy();
             });
         });
     });

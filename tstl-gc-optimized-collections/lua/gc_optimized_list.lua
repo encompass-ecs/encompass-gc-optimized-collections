@@ -61,7 +61,7 @@ GCOptimizedList.prototype.clear = function(self)
 end
 
 GCOptimizedList.prototype.delete = function(self, index)
-    if self:has(index) then
+    if self:hasIndex(index) then
         local value = self.items[index + 1]
         self.items[index + 1] = nil
         self.indices[value] = nil
@@ -103,8 +103,12 @@ GCOptimizedList.prototype.empty = function(self)
     return self.size == 0
 end
 
-GCOptimizedList.prototype.has = function(self, index)
+GCOptimizedList.prototype.hasIndex = function(self, index)
     return self.items[index + 1] ~= nil
+end
+
+GCOptimizedList.prototype.hasValue = function(self, index)
+    return self.indices[index] ~= nil
 end
 
 GCOptimizedList.prototype.shift = function(self)

@@ -41,7 +41,7 @@ export class GCOptimizedList<T> {
     }
 
     public delete(index: number) {
-        if (this.has(index)) {
+        if (this.hasIndex(index)) {
             const value = this.get(index)!;
             this.items.delete(index);
             this.indices.delete(value);
@@ -83,8 +83,12 @@ export class GCOptimizedList<T> {
         return this.size == 0;
     }
 
-    public has(index: number): boolean {
+    public hasIndex(index: number): boolean {
         return this.items.has(index);
+    }
+
+    public hasValue(value: T): boolean {
+        return this.indices.has(value);
     }
 
     public shift(): T | undefined {

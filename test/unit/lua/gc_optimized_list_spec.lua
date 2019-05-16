@@ -83,11 +83,11 @@ describe("GCOptimizedList", function()
         end)
 
         it("should not have the first element", function()
-            assert.are.equal(false, myList:has(0))
+            assert.are.equal(false, myList:hasIndex(0))
         end)
 
         it("should not have the second element", function()
-            assert.are.equal(false, myList:has(1))
+            assert.are.equal(false, myList:hasIndex(1))
         end)
     end)
 
@@ -180,7 +180,7 @@ describe("GCOptimizedList", function()
         end)
     end)
 
-    describe("has", function()
+    describe("hasIndex", function()
         describe("list has index", function()
             local myList = GCOptimizedList.new()
 
@@ -188,7 +188,7 @@ describe("GCOptimizedList", function()
             myList:add(400)
 
             it("returns true", function()
-                assert.is.truthy(myList:has(1))
+                assert.is.truthy(myList:hasIndex(1))
             end)
         end)
 
@@ -199,7 +199,26 @@ describe("GCOptimizedList", function()
             myList:add(350)
 
             it("returns false", function()
-                assert.is.falsy(myList:has(4))
+                assert.is.falsy(myList:hasIndex(4))
+            end)
+        end)
+    end)
+
+    describe("hasValue", function()
+        local myList = GCOptimizedList.new()
+
+        myList:add(3)
+        myList:add(400)
+
+        describe("list does not have value", function()
+            it("returns false", function()
+                assert.is_false(myList:hasValue(1))
+            end)
+        end)
+
+        describe("list has value", function()
+            it("returns true", function()
+                assert.is_true(myList:hasValue(400))
             end)
         end)
     end)
