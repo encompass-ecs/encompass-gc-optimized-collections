@@ -68,7 +68,7 @@ describe("GCOptimizedMap", () => {
     describe("forEach", () => {
         const myMap = new GCOptimizedMap(["a", 2], ["b", 3], ["c", 4]);
         let count = 0;
-        for (const [k, v] of myMap.iterable()) {
+        for (const [k, v] of myMap.entries()) {
             count += v;
         }
 
@@ -166,6 +166,21 @@ describe("GCOptimizedMap", () => {
             it("returns 1", () => {
                 expect(m.size).toBe(1);
             });
+        });
+    });
+
+    describe("entries", () => {
+        const m = new GCOptimizedMap([3, 2], [1, 4], [2, 6]);
+
+        it("iterates through the entries", () => {
+            let key_sum = 0;
+            let value_sum = 0;
+            for (const [k, v] of m.entries()) {
+                key_sum += k;
+                value_sum += v;
+            }
+            expect(key_sum).toBe(6);
+            expect(value_sum).toBe(12);
         });
     });
 });

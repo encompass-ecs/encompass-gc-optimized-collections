@@ -35,7 +35,7 @@ GCOptimizedMap.prototype.delete = function(self, key)
     end
 end
 
-GCOptimizedMap.prototype.iterable = function(self)
+GCOptimizedMap.prototype.entries = function(self)
     return pairs(self.items)
 end
 
@@ -45,10 +45,6 @@ end
 
 GCOptimizedMap.prototype.has = function(self, key)
     return self.items[key] ~= nil
-end
-
-GCOptimizedMap.prototype.keys = function(self)
-    return pairs(self.items:keys())
 end
 
 GCOptimizedMap.prototype.set = function(self, key, value)

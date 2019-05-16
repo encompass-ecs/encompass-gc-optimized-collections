@@ -14,7 +14,7 @@ export class GCOptimizedMap<TKey, TValue> {
         this.items = new Map<TKey, TValue>(entries);
     }
 
-    public iterable(): GCOptimizedMapIterable<[TKey, TValue]> {
+    public entries(): GCOptimizedMapIterable<[TKey, TValue]> {
         return this.items;
     }
 
