@@ -14,7 +14,7 @@ export class GCOptimizedSet<TValue> {
         this.items = new Set<TValue>([...items]);
     }
 
-    public iterable(): GCOptimizedSetIterable<TValue> {
+    public entries(): GCOptimizedSetIterable<TValue> {
         return this.items;
     }
 

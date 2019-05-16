@@ -62,12 +62,12 @@ describe("GCOptimizedSet", () => {
         });
     });
 
-    describe("forEach", () => {
+    describe("entries", () => {
         const mySet = new GCOptimizedSet(2, 3, 4);
 
         describe("one argument callback", () => {
             let count = 0;
-            for (const v of mySet.iterable()) {
+            for (const v of mySet.entries()) {
                 count += v;
             }
 
@@ -78,7 +78,7 @@ describe("GCOptimizedSet", () => {
 
         describe("two argument callback", () => {
             let count = 0;
-            for (const v of mySet.iterable()) {
+            for (const v of mySet.entries()) {
                 count += v;
             }
 

@@ -21,7 +21,7 @@ GCOptimizedSet.prototype.__constructor = function(self, ...)
     end
 end
 
-GCOptimizedSet.prototype.iterable = function(self)
+GCOptimizedSet.prototype.entries = function(self)
     return pairs(self.items)
 end
 
