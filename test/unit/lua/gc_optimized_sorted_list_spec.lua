@@ -55,6 +55,28 @@ describe("GCOptimizedSortedList", function()
         end)
     end)
 
+    describe("forEach", function()
+        it("iterates in order", function()
+            local myList = GCOptimizedSortedList.new()
+
+            myList:add(6)
+            myList:add(10)
+            myList:add(8)
+            myList:add(2)
+
+            local results = {}
+
+            myList:forEach(function(num)
+                table.insert(results, num)
+            end)
+
+            assert.are.equal(2, results[1])
+            assert.are.equal(6, results[2])
+            assert.are.equal(8, results[3])
+            assert.are.equal(10, results[4])
+        end)
+    end)
+
     describe("values", function()
         describe("empty", function()
             local myList = GCOptimizedSortedList.new()

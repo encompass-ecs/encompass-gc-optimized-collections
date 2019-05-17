@@ -7,6 +7,30 @@ describe("GCOptimizedList", function()
         end)
     end)
 
+    describe("forEach", function()
+        it("iterates in order", function()
+            local myList = GCOptimizedList.new()
+
+            myList:add(4)
+            myList:add(7)
+            myList:add(10)
+            myList:add(12)
+            myList:add(56)
+
+            local results = {}
+
+            myList:forEach(function(num)
+                table.insert(results, num)
+            end)
+
+            assert.are.equal(4, results[1])
+            assert.are.equal(7, results[2])
+            assert.are.equal(10, results[3])
+            assert.are.equal(12, results[4])
+            assert.are.equal(56, results[5])
+        end)
+    end)
+
     describe("entries", function()
         it("iterates in order", function()
             local myList = GCOptimizedList.new()

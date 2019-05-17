@@ -21,6 +21,12 @@ export class GCOptimizedList<T> {
         this._size = 0;
     }
 
+    public forEach(callback: (value: T) => any) {
+        for (let i = 0; i < this.size; i++) {
+            callback(this.get(i)!);
+        }
+    }
+
     public entries(): GCOptimizedListEntriesIterable<[number, T]> {
         return this.items;
     }

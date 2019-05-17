@@ -241,6 +241,26 @@ describe("GCOptimizedList", () => {
         })
     });
 
+    describe("forEach", () => {
+        it("iterates values in order", () => {
+            const myList = new GCOptimizedList<number>();
+
+            myList.add(4);
+            myList.add(3);
+            myList.add(1);
+
+            const results: number[] = [];
+
+            myList.forEach((num) => {
+                results.push(num);
+            });
+
+            expect(results[0]).toBe(4);
+            expect(results[1]).toBe(3);
+            expect(results[2]).toBe(1);
+        });
+    });
+
     describe("entries", () => {
         it("iterates indices and values in order", () => {
             const myList = new GCOptimizedList<number>();

@@ -17,6 +17,12 @@ GCOptimizedList.prototype.__constructor = function(self)
     self.size = 0;
 end
 
+GCOptimizedList.prototype.forEach = function(self, callback)
+    for i = 0, self.size do
+        callback(self:get(i))
+    end
+end
+
 GCOptimizedList.prototype.entries = function(self)
     return ipairs(self.items)
 end

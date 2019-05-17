@@ -30,4 +30,25 @@ describe("GCOptimizedSortedList", () => {
             expect(myList.get(3)).toBe(10);
         });
     });
+
+    describe("forEach", () => {
+        const myList = new GCOptimizedSortedList<number>();
+        myList.add(6);
+        myList.add(10);
+        myList.add(2);
+        myList.add(8);
+
+        it("iterates values in order", () => {
+            const results: number[] = [];
+
+            myList.forEach((num) => {
+                results.push(num);
+            });
+
+            expect(results[0]).toBe(2);
+            expect(results[1]).toBe(6);
+            expect(results[2]).toBe(8);
+            expect(results[3]).toBe(10);
+        });
+    });
 });
