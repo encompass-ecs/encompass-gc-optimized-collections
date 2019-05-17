@@ -49,7 +49,7 @@ export class GCOptimizedList<T> {
         this._size = 0;
     }
 
-    public delete(index: number) {
+    public delete(index: number): boolean {
         if (this.hasIndex(index)) {
             const value = this.get(index)!;
             this.items.delete(index);
@@ -65,15 +65,18 @@ export class GCOptimizedList<T> {
                 k += 1;
             }
             this.items.delete(this.size);
+            return true;
         }
-        return this;
+        return false;
     }
 
-    public deleteValue(value: T) {
+    public deleteValue(value: T): boolean {
         const index = this.indexOf(value);
         if (index !== null) {
             this.delete(index);
+            return true;
         }
+        return false;
     }
 
     public indexOf(value: T): number | null {

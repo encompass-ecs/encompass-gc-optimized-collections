@@ -18,8 +18,8 @@ GCOptimizedList.prototype.__constructor = function(self)
 end
 
 GCOptimizedList.prototype.forEach = function(self, callback)
-    for i = 0, self.size do
-        callback(self:get(i))
+    for i = 0, self.size - 1 do
+        callback(_, self:get(i))
     end
 end
 
@@ -81,15 +81,18 @@ GCOptimizedList.prototype.delete = function(self, index)
             k = k + 1
         end
         self.items[self.size + 1] = nil
+        return true
     end
-    return self
+    return false
 end
 
 GCOptimizedList.prototype.deleteValue = function(self, value)
     local index = self.indices[value]
     if index ~= nil then
         self:delete(index - 1)
+        return true
     end
+    return false
 end
 
 GCOptimizedList.prototype.indexOf = function(self, value)

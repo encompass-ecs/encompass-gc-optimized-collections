@@ -47,31 +47,59 @@ describe("GCOptimizedList", () => {
     });
 
     describe("delete", () => {
-        const myList = new GCOptimizedList<number>();
-        myList.add(100);
-        myList.add(101);
-        myList.add(102);
-        myList.add(103);
-        myList.delete(1);
+        describe("the index exists", () => {
+            const myList = new GCOptimizedList<number>();
+            myList.add(100);
+            myList.add(101);
+            myList.add(102);
+            myList.add(103);
+            myList.delete(1);
 
-        it("restructures", () => {
-            expect(myList.get(1)).toBe(102);
-            expect(myList.get(2)).toBe(103);
+            it("deletes and restructures", () => {
+                expect(myList.get(1)).toBe(102);
+                expect(myList.get(2)).toBe(103);
+            });
+        });
+
+        describe("the value does not exist", () => {
+            const myList = new GCOptimizedList<number>();
+            myList.add(100);
+            myList.add(101);
+            myList.add(102);
+            myList.add(103);
+
+            it("returns false", () => {
+                expect(myList.delete(9)).toBeFalsy();
+            });
         });
     });
 
     describe("deleteValue", () => {
-        const myList = new GCOptimizedList<number>();
-        myList.add(100);
-        myList.add(101);
-        myList.add(102);
-        myList.add(103);
+        describe("the value exists", () => {
+            const myList = new GCOptimizedList<number>();
+            myList.add(100);
+            myList.add(101);
+            myList.add(102);
+            myList.add(103);
 
-        myList.deleteValue(101);
+            myList.deleteValue(101);
 
-        it("restructures", () => {
-            expect(myList.get(1)).toBe(102);
-            expect(myList.get(2)).toBe(103);
+            it("deletes and restructures", () => {
+                expect(myList.get(1)).toBe(102);
+                expect(myList.get(2)).toBe(103);
+            });
+        });
+
+        describe("the value does not exist", () => {
+            const myList = new GCOptimizedList<number>();
+            myList.add(100);
+            myList.add(101);
+            myList.add(102);
+            myList.add(103);
+
+            it("returns false", () => {
+                expect(myList.delete(105)).toBeFalsy();
+            });
         });
     });
 

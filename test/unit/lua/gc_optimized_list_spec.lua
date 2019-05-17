@@ -19,7 +19,7 @@ describe("GCOptimizedList", function()
 
             local results = {}
 
-            myList:forEach(function(num)
+            myList:forEach(function(_, num)
                 table.insert(results, num)
             end)
 
