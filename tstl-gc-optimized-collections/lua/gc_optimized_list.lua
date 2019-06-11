@@ -11,10 +11,14 @@ GCOptimizedList.new = function(...)
     return self
 end
 
-GCOptimizedList.prototype.__constructor = function(self)
+GCOptimizedList.prototype.__constructor = function(self, ...)
     self.items = {}
     self.indices = {}
     self.size = 0;
+
+    for _, entry in ipairs({...}) do
+        self:add(entry)
+    end
 end
 
 GCOptimizedList.prototype.forEach = function(self, callback)

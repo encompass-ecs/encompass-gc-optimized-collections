@@ -2,7 +2,7 @@ local GCOptimizedList = require("tstl-gc-optimized-collections.lua.gc_optimized_
 
 describe("GCOptimizedList", function()
     describe("constructor", function()
-        local my_list = GCOptimizedList.new({1, 4, 5})
+        local my_list = GCOptimizedList.new(1, 4, 5)
 
         it("should have size 3", function()
             assert.is.equal(3, my_list.size)

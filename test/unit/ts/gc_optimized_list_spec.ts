@@ -11,8 +11,7 @@ describe("GCOptimizedList", () => {
         });
 
         describe("arguments", () => {
-            const args = [1, 4, 5];
-            const myList = new GCOptimizedList<number>(args);
+            const myList = new GCOptimizedList<number>(1, 4, 5);
 
             it("has correct size", () => {
                 expect(myList.size).toBe(3);

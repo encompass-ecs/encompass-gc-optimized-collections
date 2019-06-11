@@ -15,15 +15,13 @@ export class GCOptimizedList<T> {
     protected indices: Map<T, number>;
     protected _size: number;
 
-    constructor(entries?: T[]) {
+    constructor(...entries: T[]) {
         this.items = new Map<number, T>();
         this.indices = new Map<T, number>();
         this._size = 0;
 
-        if (entries) {
-            for (const k of entries) {
-                this.add(k);
-            }
+        for (const k of entries) {
+            this.add(k);
         }
     }
 
