@@ -14,4 +14,9 @@ do
     local GCOptimizedList = __TSTL_gc_optimized_list.GCOptimizedList;
     exports.GCOptimizedList = GCOptimizedList;
 end
+do
+    local __TSTL_gc_optimized_sorted_list = require("tstl-gc-optimized-collections.lua.gc_optimized_sorted_list");
+    local GCOptimizedSortedList = __TSTL_gc_optimized_sorted_list.GCOptimizedSortedList;
+    exports.GCOptimizedSortedList = GCOptimizedSortedList;
+end
 return exports;
