@@ -1,6 +1,31 @@
 import { GCOptimizedList } from "../../../tstl-gc-optimized-collections/init";
 
 describe("GCOptimizedList", () => {
+    describe("constructor", () => {
+        describe("no arguments", () => {
+            const myList = new GCOptimizedList<number>();
+
+            it("is empty", () => {
+                expect(myList.size).toBe(0);
+            });
+        });
+
+        describe("arguments", () => {
+            const args = [1, 4, 5];
+            const myList = new GCOptimizedList<number>(args);
+
+            it("has correct size", () => {
+                expect(myList.size).toBe(3);
+            });
+
+            it("has correct values", () => {
+                expect(myList.get(0)).toBe(1);
+                expect(myList.get(1)).toBe(4);
+                expect(myList.get(2)).toBe(5);
+            });
+        });
+    });
+
     describe("Empty", () => {
         it("should be empty", () => {
             expect(GCOptimizedList.Empty.empty()).toBeTruthy();
@@ -23,7 +48,7 @@ describe("GCOptimizedList", () => {
 
         it("should have 3 as element 2", () => {
             expect(myList.get(2)).toBe(4);
-        })
+        });
     });
 
     describe("clear", () => {
@@ -148,7 +173,7 @@ describe("GCOptimizedList", () => {
 
             it("returns true", () => {
                 expect(myList.empty()).toBeTruthy();
-            })
+            });
         });
 
         describe("list had elements removed", () => {
@@ -162,7 +187,7 @@ describe("GCOptimizedList", () => {
 
             it("returns true", () => {
                 expect(myList.empty()).toBeTruthy();
-            })
+            });
         });
 
         describe("list is not empty", () => {
@@ -266,7 +291,7 @@ describe("GCOptimizedList", () => {
                 expect(myList.get(0)).toBe(4);
                 expect(myList.get(1)).toBe(6);
             });
-        })
+        });
     });
 
     describe("forEach", () => {

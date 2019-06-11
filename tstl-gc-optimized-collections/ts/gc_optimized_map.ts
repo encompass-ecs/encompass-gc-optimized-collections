@@ -1,5 +1,5 @@
 /** @luaIterator @tupleReturn */
-export interface GCOptimizedMapIterable<T> extends Iterable<T> {}
+export interface IGCOptimizedMapIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedMap<TKey, TValue> {
     public static readonly Empty = new GCOptimizedMap<any, any>();
@@ -14,7 +14,7 @@ export class GCOptimizedMap<TKey, TValue> {
         this.items = new Map<TKey, TValue>(entries);
     }
 
-    public entries(): GCOptimizedMapIterable<[TKey, TValue]> {
+    public entries(): IGCOptimizedMapIterable<[TKey, TValue]> {
         return this.items;
     }
 

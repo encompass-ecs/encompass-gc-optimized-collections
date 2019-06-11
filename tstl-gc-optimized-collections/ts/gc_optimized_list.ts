@@ -1,8 +1,8 @@
 /** @luaIterator @tupleReturn */
-export interface GCOptimizedListEntriesIterable<T> extends Iterable<T> {}
+export interface IGCOptimizedListEntriesIterable<T> extends Iterable<T> {}
 
 /** @luaIterator */
-export interface GCOptimizedListValuesIterable<T> extends Iterable<T> {}
+export interface IGCOptimizedListValuesIterable<T> extends Iterable<T> {}
 
 export class GCOptimizedList<T> {
     public static readonly Empty = new GCOptimizedList<any>();
@@ -15,10 +15,16 @@ export class GCOptimizedList<T> {
     protected indices: Map<T, number>;
     protected _size: number;
 
-    constructor() {
+    constructor(entries?: T[]) {
         this.items = new Map<number, T>();
         this.indices = new Map<T, number>();
         this._size = 0;
+
+        if (entries) {
+            for (const k of entries) {
+                this.add(k);
+            }
+        }
     }
 
     public forEach(callback: (value: T) => any) {
@@ -27,11 +33,11 @@ export class GCOptimizedList<T> {
         }
     }
 
-    public entries(): GCOptimizedListEntriesIterable<[number, T]> {
+    public entries(): IGCOptimizedListEntriesIterable<[number, T]> {
         return this.items;
     }
 
-    public values(): GCOptimizedListValuesIterable<T> {
+    public values(): IGCOptimizedListValuesIterable<T> {
         return this.items.values();
     }
 
@@ -57,7 +63,7 @@ export class GCOptimizedList<T> {
             let k = index;
             this._size -= 1;
             while (k < this.size) {
-                const one_up_value = this.items.get(k+1);
+                const one_up_value = this.items.get(k + 1);
                 if (one_up_value !== undefined) {
                     this.items.set(k, one_up_value);
                     this.indices.set(one_up_value, k);
@@ -92,7 +98,7 @@ export class GCOptimizedList<T> {
     }
 
     public empty(): boolean {
-        return this.size == 0;
+        return this.size === 0;
     }
 
     public hasIndex(index: number): boolean {

@@ -1,6 +1,20 @@
 local GCOptimizedList = require("tstl-gc-optimized-collections.lua.gc_optimized_list").GCOptimizedList
 
 describe("GCOptimizedList", function()
+    describe("constructor", function()
+        local my_list = GCOptimizedList.new({1, 4, 5})
+
+        it("should have size 3", function()
+            assert.is.equal(3, my_list.size)
+        end)
+
+        it("should have the elements", function()
+            assert.is.equal(1, my_list:get(0))
+            assert.is.equal(4, my_list:get(1))
+            assert.is.equal(5, my_list:get(2))
+        end)
+    end)
+
     describe("Empty", function()
         it("should be empty", function()
             assert.is.equal(0, GCOptimizedList.Empty.size)
