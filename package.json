@@ -1,5 +1,5 @@
 {
-  "name": "ts-gc-optimized-collections",
+  "name": "encompass-gc-optimized-collections",
   "version": "1.0.0",
   "description": "Provides GC optimized collections in TypeScript and Lua for use with Encompass-TS",
   "author": "Evan Hemsley",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/encompass-ecs/ts-gc-optimized-collections"
+    "url": "git+https://github.com/encompass-ecs/encompass-gc-optimized-collections"
   },
   "keywords": [
     "TSTL",
@@ -23,9 +23,9 @@
     "collections"
   ],
   "bugs": {
-    "url": "https://github.com/encompass-ecs/ts-gc-optimized-collections/issues"
+    "url": "https://github.com/encompass-ecs/encompass-gc-optimized-collections/issues"
   },
-  "homepage": "https://github.com/encompass-ecs/ts-gc-optimized-collections",
+  "homepage": "https://github.com/encompass-ecs/encompass-gc-optimized-collections",
   "engines": {
     "node": ">=8.5.0"
   },

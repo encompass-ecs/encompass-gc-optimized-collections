@@ -1,0 +1,20 @@
+os: osx
+
+language: node_js
+node_js:
+  - "10"
+
+script:
+  - brew tap mesca/luarocks
+  - brew install luarocks51 --with-luajit
+  - luarocks-jit install busted
+  - npm test
+
+deploy:
+  provider: npm
+  email: evan@moonside.games
+  api_key:
+    secure: LYW/n0y6s6POVLWm+irn/Vl0Mm/eXCKrNmwYRNHduIza86XYQ9uGL+DjeQ9dlPM46KZIVaQnUijc2wL0gIkZT0z5xoVnA+UQGOqucF8/8lQNxHJesChqM5d9kFkRyp6ib5qtRx3hTSZ07vjoUvPbiz+jJfEgIgl0ANLO7EnkA6+AtLylGveJMQZ17BhVpP96CMnXsBsJx8P1GjESmVdv5R6nyDgVKylS1BU9pHfDa7GaWL8s9kGI1lhZmE8ivPXDLpOTM9xc8CL/r6Aev+HkappC00YfQOM0RsYpHaQ/LIUu/smJwEX81JtiK5BuTk9T27L9kk8zKOHW/wphxKj+mt2uZTqn1Fx4Qob/YAXLZ+1qBGkpLCsZ22y73dIvyOmkLFNdgyev5Ucxo+TFW+ccQcy5PRGRKvzN26DAPhSgegCjzkvNhmo6hEW/JqFoUHp9Vm6vGBCXnsYr5WFDG35RTL1xBw30hlhZZHxQZucxbaGHJJTJ8//txVbkO+2f0VDuUhhVUN1p43kjpaRQz5Qlzfh7qGN1ANDneRiU91qK0ZHK/prFZ+D4W9ij6q8QLfZbetjzBhysxzVKXolEabeydNrTEnF9pWxbc0jz8cf6FwZGeUn7uyosjsfiFBQaRqsPubqdgCz+MwvdQiQM5MU28P4Y7Yu2RDmb+/+gIy8Q0cU=
+  on:
+    tags: true
+    repo: encompass-ecs/encompass-gc-optimized-collections
