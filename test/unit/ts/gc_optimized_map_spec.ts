@@ -1,4 +1,4 @@
-import { GCOptimizedMap } from "../../../tstl-gc-optimized-collections/init";
+import { GCOptimizedMap } from "../../../encompass-gc-optimized-collections/init";
 
 describe("GCOptimizedMap", () => {
     describe("Empty", () => {

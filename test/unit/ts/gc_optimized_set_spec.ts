@@ -1,4 +1,4 @@
-import { GCOptimizedSet } from "../../../tstl-gc-optimized-collections/init";
+import { GCOptimizedSet } from "../../../encompass-gc-optimized-collections/init";
 
 describe("GCOptimizedSet", () => {
     describe("Empty", () => {

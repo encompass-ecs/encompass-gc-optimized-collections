@@ -1,4 +1,4 @@
-local GCOptimizedSortedList = require("tstl-gc-optimized-collections.lua.gc_optimized_sorted_list").GCOptimizedSortedList
+local GCOptimizedSortedList = require("encompass-gc-optimized-collections.lua.gc_optimized_sorted_list").GCOptimizedSortedList
 
 describe("GCOptimizedSortedList", function()
     describe("Empty", function()

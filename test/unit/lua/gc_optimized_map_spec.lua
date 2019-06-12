@@ -1,4 +1,4 @@
-local GCOptimizedMap = require("tstl-gc-optimized-collections.lua.gc_optimized_map").GCOptimizedMap
+local GCOptimizedMap = require("encompass-gc-optimized-collections.lua.gc_optimized_map").GCOptimizedMap
 
 describe("GCOptimizedMap", function()
     describe("constructor", function()

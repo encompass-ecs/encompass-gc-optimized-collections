@@ -1,4 +1,4 @@
-import { GCOptimizedSortedList } from "../../../tstl-gc-optimized-collections/init";
+import { GCOptimizedSortedList } from "../../../encompass-gc-optimized-collections/init";
 
 describe("GCOptimizedSortedList", () => {
     describe("Empty", () => {
