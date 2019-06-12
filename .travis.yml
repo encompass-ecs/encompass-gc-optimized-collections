@@ -8,7 +8,7 @@ script:
   - brew tap mesca/luarocks
   - brew install luarocks51 --with-luajit
   - luarocks-jit install busted --local
-  - eval $(luarocks path --bin)
+  - eval $(luarocks-jit path --bin)
   - npm test
 
 deploy:
