@@ -4,12 +4,15 @@
   "description": "Provides GC optimized collections in TypeScript and Lua for use with Encompass-TS",
   "author": "Evan Hemsley",
   "license": "MIT",
-  "main": "./encompass-gc-optimized-collections/init.ts",
-  "typings": "./encompass-gc-optimized-collections/init.ts",
-  "module": "./encompass-gc-optimized-collections/init.ts",
+  "main": "./distjs/init.js",
+  "files": [
+    "encompass-gc-optimized-collections/init.lua",
+    "encompass-gc-optimized-collections/lua",
+    "distjs"
+  ],
   "scripts": {
     "test": "busted ./test && jest",
-    "build": "rm -rf ./build && tstl -p tsconfig.json && shx cp ./encompass-gc-optimized-collections.lua ./build"
+    "build": "tsc -p tsconfig.json && shx rm -rf ./distjs && shx cp -r ./build/ ./distjs && shx rm -rf ./build",
   },
   "repository": {
     "type": "git",
