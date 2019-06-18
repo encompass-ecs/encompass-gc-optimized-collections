@@ -4,7 +4,7 @@
   "description": "Provides GC optimized collections in TypeScript and Lua for use with Encompass-TS",
   "author": "Evan Hemsley",
   "license": "MIT",
-  "main": "./distjs/init.js",
+  "main": "./distjs/encompass-gc-optimized-collections/init.js",
   "files": [
     "encompass-gc-optimized-collections/init.lua",
     "encompass-gc-optimized-collections/lua",
