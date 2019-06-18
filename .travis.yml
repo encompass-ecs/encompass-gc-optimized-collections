@@ -9,6 +9,7 @@ script:
   - luarocks-jit install busted --local
   - eval $(luarocks-jit path --bin)
   - npm test
+  - npm run build
 
 deploy:
   provider: npm
@@ -18,3 +19,4 @@ deploy:
   on:
     tags: true
     repo: encompass-ecs/encompass-gc-optimized-collections
+  skip_cleanup: true
