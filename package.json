@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "busted ./test && jest",
-    "build": "tsc -p tsconfig.json && shx rm -rf ./distjs && shx cp -r ./build/ ./distjs && shx rm -rf ./build",
+    "build": "tsc -p tsconfig.json && shx rm -rf ./distjs && shx cp -r ./build/ ./distjs && shx rm -rf ./build"
   },
   "repository": {
     "type": "git",
