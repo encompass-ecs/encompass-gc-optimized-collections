@@ -1,6 +1,6 @@
 {
   "name": "encompass-gc-optimized-collections",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Provides GC optimized collections in TypeScript and Lua for use with Encompass-TS",
   "author": "Evan Hemsley",
   "license": "MIT",
